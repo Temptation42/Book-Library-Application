@@ -29,11 +29,11 @@ const Bookpage = () => {
         navigate("/") 
     }
   return (
-    <div className="min-h-screen text-[#252422] bg-[#f5f5f5] px-4 md:px-12 pb-10">
+    <div className="absolute mt-20 min-h-screen text-[#252422] bg-[#ffffff] px-4 md:px-12 pb-10">
       <p className="cursor-pointer py-3" onClick={()=> navigate("/")}>&larr; Back</p>
         <div className="flex flex-col md:flex-row">
-            <div className="md:basis-[30%] md:mr-6 mx-auto w-full">
-                <img src={book?.image} className="max-h-[50vh] mx-auto"/>
+            <div className="md:basis-[100%] md:mr-6 mx-auto w-full">
+                <img src={book?.image} className="max-h-[70vh] mx-auto"/>
 
                 <Link to={book?.link} target="_blank">
                     <div className="w-full flex justify-center items-center">
@@ -66,7 +66,7 @@ const Bookpage = () => {
 
             <p className="pl-5">Written by: {book?.author}</p>
             
-            <p className="mt-2 font-semibold text-lg md:text-xl">Reviw:</p>
+            <p className="mt-2 font-semibold text-lg md:text-xl">Review:</p>
             
             <p className="md:text-lg">{book?.review}</p>
           </div>

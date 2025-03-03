@@ -39,7 +39,7 @@ const Searchpage = () => {
     console.log("Search Result: ", books )
 
   return (
-    <div className="min-h-screen text-[#252422] bg-[#F5F5F5] px-4 md:px-12 pb-10">
+    <div className=" min-h-screen text-[#252422] bg-[#F5F5F5] px-4 md:px-12 pb-10">
         <p className="cursor-pointer py-3" onClick={()=> navigate("/")}>&larr; Back</p>
         <div className='w-full h-full flex flex-col justify-center items-center'>
             <form onSubmit={handleSubmit} className='relative w-full max-w-sm md:max-w-xl lg:max-w-3xl text-base lg:text-lg'>

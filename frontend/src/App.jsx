@@ -15,9 +15,15 @@ import Footer from './components/Footer'
 import Searchpage from './pages/Searchpage'
 import Bookpage from './pages/Bookpage'
 import Updatepage from './pages/Updatepage'
+import MyBooks from './pages/MyBooks'
 
 function App() {
   const {fetchUser, fetchingUser} = useAuthStore();
+  const [authForm, setAuthForm] = useState("default");
+
+  const handleAuthForm = (formType)=>{
+    setAuthForm(formType);
+  };
 
   useEffect(() => {
     fetchUser();
@@ -27,23 +33,24 @@ function App() {
     return <p>Loading...</p>
   }
   return (
+
     <>
     <Toaster/>
-    <Navbar/>
+    <Navbar handleAuthForm={handleAuthForm}/>
 
       <Routes>
-        <Route path={"/"} element={<Homepage/>}/>
+        <Route path={"/"} element={<Homepage authForm={authForm} handleAuthForm={handleAuthForm}/>}/>
         <Route path={"/add-book"} element={<RedirectUnAuthenticatedUsers><Addbook/></RedirectUnAuthenticatedUsers>}/>
         <Route path={"/login"} element={<RedirectAuthenticatedUsers><LoginPage/></RedirectAuthenticatedUsers>}/>
         <Route path={"/signup"} element={<RedirectAuthenticatedUsers><SignupPage/></RedirectAuthenticatedUsers>}/>
-      
-      <Route path="/search" element={<Searchpage/>}/>
-
-      <Route path="/book/:id" element={<Bookpage/>}/>
-      <Route path="/book/:id/update" element={<Updatepage/>}/>
+        <Route path="/search" element={<Searchpage/>}/>
+        <Route path="/book/:id" element={<Bookpage/>}/>
+        <Route path="/book/:id/update" element={<Updatepage/>}/>
+        <Route path="/mybooks" element={<RedirectUnAuthenticatedUsers><MyBooks/></RedirectUnAuthenticatedUsers>}/>
       </Routes>
 
       <Footer/>
+    
     </>
   )
 }

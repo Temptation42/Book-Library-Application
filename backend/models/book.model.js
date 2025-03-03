@@ -6,6 +6,7 @@ const bookSchema = new mongoose.Schema({
     subtitle: String,
     author: {type: String, required: true},
     link: {type: String, required: true},
+    review: {type: String, required:false},
     user: {type: mongoose.SchemaTypes.ObjectId, ref: "User"},
 },
     {timestamps: true}
